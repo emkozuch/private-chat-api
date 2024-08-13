@@ -3,7 +3,9 @@ import cookieParser from 'cookie-parser';
 import { createServer } from 'http';
 import cors from 'cors';
 import 'dotenv/config';
-import { connectDb } from './config/db/mongodb';
+import middleware from 'i18next-http-middleware';
+import i18next from './i18n';
+import { connectDb } from 'config';
 
 const port = process.env.PORT || 3000;
 
@@ -12,6 +14,7 @@ const startServer = async () => {
     await connectDb();
 
     const app = express();
+    app.use(middleware.handle(i18next));
     app.use(
       cors({
         origin: 'http://localhost:5173',
