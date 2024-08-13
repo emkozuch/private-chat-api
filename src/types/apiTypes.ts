@@ -9,3 +9,7 @@ export type BaseError = {
   errorKey: TErrorKeys;
   detailedMessage: TErrorKeys;
 };
+
+export type AccessRequestDto = {
+  email: string;
+};
