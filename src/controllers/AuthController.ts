@@ -32,6 +32,16 @@ class AuthController {
     }
   }
 
+  async logout(req: Request, res: Response): Promise<Response> {
+    res.clearCookie('authToken', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+    });
+
+    return res.sendStatus(HttpStatusCode.OK);
+  }
+
   async getIsAuthenticated(req: Request, res: Response): Promise<Response> {
     return res.sendStatus(HttpStatusCode.OK);
   }

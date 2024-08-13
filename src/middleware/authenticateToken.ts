@@ -11,7 +11,7 @@ export const authenticateToken = (
   const token =
     req.cookies['authToken'] || req.headers['authorization']?.split(' ')[1];
 
-  if (!token) return res.status(HttpStatusCode.UNAUTHORIZED).send(false);
+  if (!token) return res.sendStatus(HttpStatusCode.UNAUTHORIZED);
 
   passportInstance.authenticate(
     'jwt',
