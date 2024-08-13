@@ -2,10 +2,11 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { createServer } from 'http';
 import cors from 'cors';
-import 'dotenv/config';
 import middleware from 'i18next-http-middleware';
 import i18next from './i18n';
-import { connectDb } from 'config';
+import { passportInstance, connectDb } from './config';
+import 'dotenv/config';
+import { authRouter } from './routes/authRoutes';
 
 const port = process.env.PORT || 3000;
 
@@ -23,8 +24,11 @@ const startServer = async () => {
       }),
     );
 
+    app.use(passportInstance.initialize());
     app.use(cookieParser());
     app.use(express.json());
+
+    app.use('/auth', authRouter);
 
     const server = createServer(app);
 

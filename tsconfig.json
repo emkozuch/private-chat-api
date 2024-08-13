@@ -10,19 +10,7 @@
     "forceConsistentCasingInFileNames": true,
     "typeRoots": ["./node_modules/@types"],
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "baseUrl": "./src",
-    "paths": {
-      "config": ["./config"],
-      "controllers": ["./controllers"],
-      "middleware": ["./middleware"],
-      "models": ["./models"],
-      "routes": ["./routes"],
-      "services": ["./services"],
-      "translations": ["./translations"],
-      "types": ["./types"],
-      "utils": ["./utils"]
-    }
+    "esModuleInterop": true
   },
 
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
