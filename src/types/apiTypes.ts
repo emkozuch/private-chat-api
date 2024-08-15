@@ -1,3 +1,4 @@
+import { IUser } from '../models';
 import { TErrorKeys } from './errorKeys';
 
 export type LoginRequestDto = {
@@ -13,3 +14,5 @@ export type BaseError = {
 export type AccessRequestDto = {
   email: string;
 };
+
+export type GetUserProfileResponseDto = IUser;

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { HttpStatusCode, TErrorKeys } from '../types';
 
-export const sendInternalServerError = (res: Response, req: Request) => {
+export const sendInternalServerError = (req: Request, res: Response) => {
   return res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).json({
     errorKey: TErrorKeys.INTERNAL_SERVER_ERROR,
     detailedMessage: req.t(TErrorKeys.INTERNAL_SERVER_ERROR),
@@ -26,9 +26,8 @@ export const handleLoginError = (
           detailedMessage: req.t(TErrorKeys.WRONG_EMAIL_OR_PWD),
         });
       default:
-        return sendInternalServerError(res, req);
+        break;
     }
-  } else {
-    return sendInternalServerError(res, req);
   }
+  return sendInternalServerError(req, res);
 };

@@ -4,5 +4,6 @@
   "ACCESS_REQUEST_FAILED": "Failed to send request",
   "CANT_PROCESS_ACCESS_REQUEST": "Request could not be processed.",
   "INTERNAL_SERVER_ERROR": "An unexpected error occurred on the server.",
-  "UNAUTHORIZED": "Unauthorized"
+  "UNAUTHORIZED": "Unauthorized",
+  "USER_NOT_FOUND": "Could not find user"
 }

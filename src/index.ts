@@ -7,6 +7,7 @@ import i18next from './i18n';
 import { passportInstance, connectDb } from './config';
 import 'dotenv/config';
 import { authRouter } from './routes/authRoutes';
+import { userRouter } from './routes';
 
 const port = process.env.PORT || 3000;
 
@@ -29,6 +30,7 @@ const startServer = async () => {
     app.use(express.json());
 
     app.use('/auth', authRouter);
+    app.use('/user', userRouter);
 
     const server = createServer(app);
 
